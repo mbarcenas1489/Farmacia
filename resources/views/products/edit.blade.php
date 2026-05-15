@@ -19,6 +19,47 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
+                    <label class="block text-sm">Nombre genérico</label>
+                    <input name="generic_name" value="{{ old('generic_name',$product->generic_name) }}" class="w-full border rounded p-2">
+                    @error('generic_name')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                </div>
+                <div>
+                    <label class="block text-sm">Marca comercial</label>
+                    <input name="brand_name" value="{{ old('brand_name',$product->brand_name) }}" class="w-full border rounded p-2">
+                    @error('brand_name')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm">Principio activo</label>
+                    <input name="active_ingredient" value="{{ old('active_ingredient',$product->active_ingredient) }}" class="w-full border rounded p-2">
+                    @error('active_ingredient')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                </div>
+                <div>
+                    <label class="block text-sm">Concentración</label>
+                    <input name="concentration" value="{{ old('concentration',$product->concentration) }}" class="w-full border rounded p-2">
+                    @error('concentration')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm">Forma farmacéutica</label>
+                    <input name="pharmaceutical_form" value="{{ old('pharmaceutical_form',$product->pharmaceutical_form) }}" class="w-full border rounded p-2">
+                    @error('pharmaceutical_form')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                </div>
+                <div>
+                    <label class="block text-sm">Presentación</label>
+                    <input name="presentation" value="{{ old('presentation',$product->presentation) }}" class="w-full border rounded p-2">
+                    @error('presentation')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                </div>
+                <div>
+                    <label class="block text-sm">Unidad de medida</label>
+                    <input name="unit_measure" value="{{ old('unit_measure',$product->unit_measure) }}" class="w-full border rounded p-2">
+                    @error('unit_measure')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
                     <label class="block text-sm">Categoría</label>
                     <select name="category_id" class="w-full border rounded p-2">
                         <option value="">--</option>
@@ -60,6 +101,14 @@
             <div>
                 <label class="block text-sm">Descripción</label>
                 <textarea name="description" class="w-full border rounded p-2">{{ old('description',$product->description) }}</textarea>
+            </div>
+            <div>
+                <label class="block text-sm">Estado</label>
+                <select name="status" class="w-full border rounded p-2">
+                    <option value="active" {{ old('status', $product->status) === 'active' ? 'selected' : '' }}>Activo</option>
+                    <option value="inactive" {{ old('status', $product->status) === 'inactive' ? 'selected' : '' }}>Inactivo</option>
+                </select>
+                @error('status')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
             </div>
             <div class="flex items-center gap-3">
                 <button class="px-4 py-2 bg-blue-600 text-white rounded">Guardar</button>

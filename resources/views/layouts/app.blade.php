@@ -79,6 +79,15 @@
                                 Categorías
                             </a>
 
+                            @if(Auth::user()->hasRole('admin'))
+                                <a href="{{ route('users.index') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md {{ request()->routeIs('users.*') ? 'bg-blue-800 text-white' : 'text-blue-100 hover:bg-blue-700 hover:text-white' }}">
+                                    <svg class="mr-3 h-6 w-6 {{ request()->routeIs('users.*') ? 'text-blue-300' : 'text-blue-400 group-hover:text-blue-300' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5V4H2v16h5m10 0v-2a4 4 0 00-4-4H11a4 4 0 00-4 4v2m10 0H7m10-11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    Gestion de Usuarios
+                                </a>
+                            @endif
+
                             <!-- POS -->
                             <a href="{{ route('pos.index') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md {{ request()->routeIs('pos.*') ? 'bg-blue-800 text-white' : 'text-blue-100 hover:bg-blue-700 hover:text-white' }}">
                                 <svg class="mr-3 h-6 w-6 {{ request()->routeIs('pos.*') ? 'text-blue-300' : 'text-blue-400 group-hover:text-blue-300' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">

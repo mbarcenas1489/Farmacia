@@ -19,6 +19,13 @@ return new class extends Migration
             $table->unsignedBigInteger('supplier_id')->nullable();
             $table->string('barcode')->nullable();
             $table->text('description')->nullable();
+            $table->string('generic_name')->nullable();
+            $table->string('brand_name')->nullable();
+            $table->string('active_ingredient')->nullable();
+            $table->string('concentration')->nullable();
+            $table->string('pharmaceutical_form')->nullable();
+            $table->string('presentation')->nullable();
+            $table->string('unit_measure')->nullable();
             $table->decimal('cost_price', 12, 2)->default(0);
             $table->decimal('sale_price', 12, 2)->default(0);
             $table->integer('stock')->default(0);

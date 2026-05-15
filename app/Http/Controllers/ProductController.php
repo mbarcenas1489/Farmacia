@@ -41,6 +41,13 @@ class ProductController extends Controller
             'supplier_id' => ['nullable','exists:suppliers,id'],
             'barcode' => ['nullable','string','max:255'],
             'description' => ['nullable','string'],
+            'generic_name' => ['nullable','string','max:255'],
+            'brand_name' => ['nullable','string','max:255'],
+            'active_ingredient' => ['nullable','string','max:255'],
+            'concentration' => ['nullable','string','max:255'],
+            'pharmaceutical_form' => ['nullable','string','max:255'],
+            'presentation' => ['nullable','string','max:255'],
+            'unit_measure' => ['nullable','string','max:255'],
             'cost_price' => ['required','numeric','min:0'],
             'sale_price' => ['required','numeric','min:0'],
             'stock' => ['required','integer','min:0'],
@@ -54,11 +61,9 @@ class ProductController extends Controller
         if (($data['stock'] ?? 0) > 0) {
             StockMovement::create([
                 'product_id' => $product->id,
-                'type' => 'in',
-                'quantity' => (int) $data['stock'],
-                'old_stock' => 0,
-                'new_stock' => (int) $data['stock'],
-                'reason' => 'Stock inicial',
+                'type' => 'adjustment',
+                'quantity_change' => (int) $data['stock'],
+                'note' => 'Stock inicial',
             ]);
         }
 
@@ -96,6 +101,13 @@ class ProductController extends Controller
             'supplier_id' => ['nullable','exists:suppliers,id'],
             'barcode' => ['nullable','string','max:255'],
             'description' => ['nullable','string'],
+            'generic_name' => ['nullable','string','max:255'],
+            'brand_name' => ['nullable','string','max:255'],
+            'active_ingredient' => ['nullable','string','max:255'],
+            'concentration' => ['nullable','string','max:255'],
+            'pharmaceutical_form' => ['nullable','string','max:255'],
+            'presentation' => ['nullable','string','max:255'],
+            'unit_measure' => ['nullable','string','max:255'],
             'cost_price' => ['required','numeric','min:0'],
             'sale_price' => ['required','numeric','min:0'],
             'stock' => ['required','integer','min:0'],
@@ -110,11 +122,9 @@ class ProductController extends Controller
         if ($diff !== 0) {
             StockMovement::create([
                 'product_id' => $product->id,
-                'type' => $diff > 0 ? 'in' : 'out',
-                'quantity' => abs($diff),
-                'old_stock' => $prevStock,
-                'new_stock' => $newStock,
-                'reason' => 'Ajuste manual de stock',
+                'type' => 'adjustment',
+                'quantity_change' => $diff,
+                'note' => 'Ajuste manual de stock',
             ]);
         }
 

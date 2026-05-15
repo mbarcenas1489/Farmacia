@@ -89,6 +89,72 @@
                 @enderror
             </div>
 
+            <div class="border-t pt-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">Datos farmacéuticos</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="generic_name" class="block text-sm font-medium text-gray-700 mb-2">Nombre genérico</label>
+                        <input type="text" id="generic_name" name="generic_name" value="{{ old('generic_name') }}" class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        @error('generic_name')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="brand_name" class="block text-sm font-medium text-gray-700 mb-2">Marca comercial</label>
+                        <input type="text" id="brand_name" name="brand_name" value="{{ old('brand_name') }}" class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        @error('brand_name')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <label for="active_ingredient" class="block text-sm font-medium text-gray-700 mb-2">Principio activo</label>
+                        <input type="text" id="active_ingredient" name="active_ingredient" value="{{ old('active_ingredient') }}" class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        @error('active_ingredient')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="concentration" class="block text-sm font-medium text-gray-700 mb-2">Concentración</label>
+                        <input type="text" id="concentration" name="concentration" value="{{ old('concentration') }}" class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        @error('concentration')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div>
+                        <label for="pharmaceutical_form" class="block text-sm font-medium text-gray-700 mb-2">Forma farmacéutica</label>
+                        <input type="text" id="pharmaceutical_form" name="pharmaceutical_form" value="{{ old('pharmaceutical_form') }}" class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        @error('pharmaceutical_form')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="presentation" class="block text-sm font-medium text-gray-700 mb-2">Presentación</label>
+                        <input type="text" id="presentation" name="presentation" value="{{ old('presentation') }}" class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        @error('presentation')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="unit_measure" class="block text-sm font-medium text-gray-700 mb-2">Unidad de medida</label>
+                        <input type="text" id="unit_measure" name="unit_measure" value="{{ old('unit_measure') }}" class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        @error('unit_measure')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
             <!-- Pricing and Stock -->
             <div class="border-t pt-6">
                 <h3 class="text-lg font-medium text-gray-900 mb-4">Precios y Stock</h3>

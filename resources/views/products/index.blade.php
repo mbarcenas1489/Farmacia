@@ -105,6 +105,9 @@
                                 </div>
                                 <div class="ml-4">
                                     <div class="text-sm font-medium text-gray-900">{{ $product->name }}</div>
+                                    @if($product->generic_name)
+                                        <div class="text-sm text-gray-500">{{ $product->generic_name }}</div>
+                                    @endif
                                     @if($product->barcode)
                                         <div class="text-sm text-gray-500">{{ $product->barcode }}</div>
                                     @endif

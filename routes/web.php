@@ -11,6 +11,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\PosController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function () {
         'payments' => PaymentController::class,
         'stock-movements' => StockMovementController::class,
     ]);
+
+    Route::resource('users', UserController::class);
 
     Route::get('/reports/sales', [ReportsController::class, 'sales'])->name('reports.sales');
     Route::get('/reports/low-stock', [ReportsController::class, 'lowStock'])->name('reports.low_stock');

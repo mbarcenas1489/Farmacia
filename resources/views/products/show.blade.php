@@ -10,6 +10,13 @@
         <div class="bg-white p-6 rounded shadow space-y-2">
             <div><strong>SKU:</strong> {{ $product->sku }}</div>
             <div><strong>Nombre:</strong> {{ $product->name }}</div>
+            <div><strong>Nombre genérico:</strong> {{ $product->generic_name ?: '-' }}</div>
+            <div><strong>Marca comercial:</strong> {{ $product->brand_name ?: '-' }}</div>
+            <div><strong>Principio activo:</strong> {{ $product->active_ingredient ?: '-' }}</div>
+            <div><strong>Concentración:</strong> {{ $product->concentration ?: '-' }}</div>
+            <div><strong>Forma farmacéutica:</strong> {{ $product->pharmaceutical_form ?: '-' }}</div>
+            <div><strong>Presentación:</strong> {{ $product->presentation ?: '-' }}</div>
+            <div><strong>Unidad de medida:</strong> {{ $product->unit_measure ?: '-' }}</div>
             <div><strong>Categoría:</strong> {{ $product->category->name ?? '-' }}</div>
             <div><strong>Proveedor:</strong> {{ $product->supplier->name ?? '-' }}</div>
             <div><strong>Precio:</strong> $ {{ number_format($product->sale_price,2) }}</div>
